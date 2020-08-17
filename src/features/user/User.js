@@ -12,7 +12,7 @@ export default function User(props) {
   return (
     <div>
       <h2>{props.userId}</h2>
-      <Button color="primary" variant="contained">User boobs</Button>
+      <Button color="primary" variant="contained">User button</Button>
     </div>
   );
 }

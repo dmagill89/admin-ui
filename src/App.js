@@ -6,6 +6,7 @@ import Home from './features/home/Home';
 import User from './features/user/User';
 import UserDetails from './features/user/UserDetails'
 import UserIndex from './features/user/UserIndex';
+import { CssBaseline, Container } from '@material-ui/core';
 
 function App() {
 
@@ -20,24 +21,29 @@ function App() {
   });
 
   return (
-    <section>
-      <header>
-        <h1>Admin UI</h1>
-      </header>
-      <nav>
-        <Link to="/">Home</Link> {" "}
-        <Link to="counter">Counter</Link>
-        <Link to="user">User Details</Link>
-      </nav>
-      <Router>
-        <Home path="/" users={users}/>
-        <Counter path="counter"></Counter>
-        <UserDetails path="user">
-          <UserIndex path="/"></UserIndex>
-          <User path=":userId"></User>
-        </UserDetails>
-      </Router>
-    </section>
+    <>
+      <CssBaseline/>
+      <Container maxWidth="xl">
+        <section>
+          <header>
+            <h1>Admin UI</h1>
+          </header>
+          <nav>
+            <Link to="/">Home</Link> {" "}
+            <Link to="counter">Counter</Link>
+            <Link to="user">User Details</Link>
+          </nav>
+          <Router>
+            <Home path="/" users={users}/>
+            <Counter path="counter"></Counter>
+            <UserDetails path="user">
+              <UserIndex path="/"></UserIndex>
+              <User path=":userId"></User>
+            </UserDetails>
+          </Router>
+        </section>
+      </Container>
+    </>
   );
 }
 
