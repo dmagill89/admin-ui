@@ -8,6 +8,7 @@ import {
   selectCount,
 } from './counterSlice';
 import styles from './Counter.module.css';
+import Button from '@material-ui/core/Button';
 
 export function Counter() {
   const count = useSelector(selectCount);
@@ -17,21 +18,19 @@ export function Counter() {
   return (
     <div>
       <div className={styles.row}>
-        <button
-          className={styles.button}
+        <Button
           aria-label="Increment value"
           onClick={() => dispatch(increment())}
         >
           +
-        </button>
+        </Button>
         <span className={styles.value}>{count}</span>
-        <button
-          className={styles.button}
+        <Button
           aria-label="Decrement value"
           onClick={() => dispatch(decrement())}
         >
           -
-        </button>
+        </Button>
       </div>
       <div className={styles.row}>
         <input
@@ -40,20 +39,18 @@ export function Counter() {
           value={incrementAmount}
           onChange={e => setIncrementAmount(e.target.value)}
         />
-        <button
-          className={styles.button}
+        <Button
           onClick={() =>
             dispatch(incrementByAmount(Number(incrementAmount) || 0))
           }
         >
           Add Amount
-        </button>
-        <button
-          className={styles.asyncButton}
+        </Button>
+        <Button
           onClick={() => dispatch(incrementAsync(Number(incrementAmount) || 0))}
         >
           Add Async
-        </button>
+        </Button>
       </div>
     </div>
   );
